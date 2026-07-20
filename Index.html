@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maninderjit Singh Bhullar — Software & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF8;
+    --bg-panel: #F2F1EC;
+    --ink: #1A1D23;
+    --ink-soft: #5B6270;
+    --accent: #2B6E63;
+    --accent-tint: #E8F0EE;
+    --line: #E2E1DC;
+    --white: #FFFFFF;
+    --max: 920px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,250,248,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:16px; letter-spacing:-0.01em; }
+  .navlinks{ display:flex; gap:28px; font-size:14px; color:var(--ink-soft); }
+  .navlinks a:hover{ color:var(--accent); }
+  .navlinks a:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  /* HERO */
+  .hero{ padding:96px 0 72px; position:relative; overflow:hidden; }
+  .hero-grid{
+    position:absolute; inset:0; z-index:0;
+    background-image: radial-gradient(circle, #D9D8D2 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+    opacity:0.7;
+  }
+  .hero-inner{ position:relative; z-index:1; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:''; width:7px; height:7px; border-radius:50%; background:var(--accent);
+    box-shadow:0 0 0 3px var(--accent-tint);
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:600;
+    font-size:clamp(38px, 6vw, 62px); line-height:1.06; letter-spacing:-0.02em;
+    max-width:760px;
+  }
+  .hero p.lede{
+    margin-top:22px; font-size:18px; color:var(--ink-soft); max-width:560px;
+  }
+  .hero-links{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    font-size:14px; font-weight:500; padding:11px 20px; border-radius:6px;
+    border:1px solid var(--line); transition:all .15s ease;
+  }
+  .btn.primary{ background:var(--ink); color:var(--white); border-color:var(--ink); }
+  .btn.primary:hover{ background:var(--accent); border-color:var(--accent); }
+  .btn.ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* STAT BAR */
+  .stats{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--bg-panel);
+  }
+  .stats .wrap{
+    display:grid; grid-template-columns:repeat(4, 1fr);
+    padding:26px 28px;
+  }
+  .stat{ border-left:1px solid var(--line); padding-left:20px; }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{ font-family:'JetBrains Mono', monospace; font-size:24px; font-weight:500; color:var(--accent); }
+  .stat .label{ font-size:12.5px; color:var(--ink-soft); margin-top:4px; }
+
+  /* SECTIONS */
+  section{ padding:80px 0; }
+  .section-head{ margin-bottom:44px; }
+  .section-head .tag{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; display:block;
+  }
+  .section-head h2{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:30px; letter-spacing:-0.01em;
+  }
+
+  /* PROJECTS */
+  .project{
+    border-top:1px solid var(--line);
+    padding:32px 0;
+    display:grid; grid-template-columns:1fr 2.4fr; gap:28px;
+  }
+  .project:last-child{ border-bottom:1px solid var(--line); }
+  .project .pname{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em;
+  }
+  .project .pmeta{ margin-top:8px; font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft); }
+  .project p.desc{ color:var(--ink-soft); font-size:15px; margin-top:4px; }
+  .tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+  .tag-chip{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; padding:4px 10px;
+    border-radius:20px; background:var(--accent-tint); color:var(--accent); border:1px solid transparent;
+  }
+
+  /* EXPERIENCE / EDUCATION */
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .entry{ border-top:1px solid var(--line); padding:20px 0; }
+  .entry:last-child{ }
+  .entry .row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .entry .org{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:16.5px; }
+  .entry .when{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap; }
+  .entry .role{ color:var(--ink-soft); font-size:14px; margin-top:4px; }
+
+  /* CONTACT */
+  .contact{
+    background:var(--ink); color:var(--bg);
+    border-radius:14px; padding:56px 44px; margin:0 28px 96px;
+    max-width:calc(920px - 56px); margin-left:auto; margin-right:auto;
+  }
+  .contact h2{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:32px; letter-spacing:-0.01em;
+    max-width:480px;
+  }
+  .contact p{ color:#A9AEB8; margin-top:14px; max-width:440px; font-size:15px; }
+  .contact-links{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
+  .contact .btn{ border-color:#3A3E47; color:var(--bg); }
+  .contact .btn.primary{ background:var(--accent); border-color:var(--accent); color:var(--white); }
+  .contact .btn.ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+  footer{ text-align:center; padding:32px 0 48px; font-size:12.5px; color:var(--ink-soft); font-family:'JetBrains Mono', monospace; }
+
+  @media (max-width:720px){
+    .stats .wrap{ grid-template-columns:repeat(2,1fr); row-gap:22px; }
+    .stat:nth-child(3){ border-left:none; padding-left:0; }
+    .project{ grid-template-columns:1fr; gap:10px; }
+    .split{ grid-template-columns:1fr; gap:8px; }
+    .contact{ padding:40px 26px; }
+    .navlinks{ display:none; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <span class="brand">Manin Bhullar</span>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Open to Fall 2026 internship & new-grad roles</div>
+    <h1>Maninderjit Singh Bhullar</h1>
+    <p class="lede">Software engineer turned ML-focused CS grad student — I build systems that turn messy data into reliable decisions, from entity resolution to applied NLP.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="https://github.com/msbhullar" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn ghost" href="https://linkedin.com/in/-bhullar" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat">
+      <div class="num">4.0</div>
+      <div class="label">GPA, MS Computer Science</div>
+    </div>
+    <div class="stat">
+      <div class="num">2 yrs</div>
+      <div class="label">SWE @ NXP Semiconductors</div>
+    </div>
+    <div class="stat">
+      <div class="num">ASU</div>
+      <div class="label">Arizona State University, Tempe</div>
+    </div>
+    <div class="stat">
+      <div class="num">3</div>
+      <div class="label">Featured ML / data projects</div>
+    </div>
+  </div>
+</div>
+
+<section id="work" class="wrap">
+  <div class="section-head">
+    <span class="tag">Selected work</span>
+    <h2>Projects</h2>
+  </div>
+
+  <div class="project">
+    <div>
+      <div class="pname">TraceLens</div>
+      <div class="pmeta">ML · NLP</div>
+    </div>
+    <div>
+      <p class="desc">A mismatch detection and classification system that applies ML and NLP techniques to flag inconsistencies in structured and unstructured data.</p>
+      <div class="tags">
+        <span class="tag-chip">classification</span>
+        <span class="tag-chip">nlp</span>
+        <span class="tag-chip">mismatch detection</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div>
+      <div class="pname">AI Study Companion</div>
+      <div class="pmeta">RAG · LLM Evaluation</div>
+    </div>
+    <div>
+      <p class="desc">A retrieval-augmented generation app that answers study questions grounded in course material, built with a structured methodology for evaluating LLM output quality.</p>
+      <div class="tags">
+        <span class="tag-chip">rag</span>
+        <span class="tag-chip">llm eval</span>
+        <span class="tag-chip">retrieval</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div>
+      <div class="pname">Ownership Entity Resolution Engine</div>
+      <div class="pmeta">Data Engineering</div>
+    </div>
+    <div>
+      <p class="desc">A fuzzy-matching engine that resolves ownership entities across noisy records and assigns confidence scores to each match.</p>
+      <div class="tags">
+        <span class="tag-chip">fuzzy matching</span>
+        <span class="tag-chip">confidence scoring</span>
+        <span class="tag-chip">data quality</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background" class="wrap">
+  <div class="section-head">
+    <span class="tag">Background</span>
+    <h2>Experience & education</h2>
+  </div>
+  <div class="split">
+    <div>
+      <div class="entry">
+        <div class="row">
+          <span class="org">NXP Semiconductors</span>
+          <span class="when mono">2 years</span>
+        </div>
+        <div class="role">Software Engineer</div>
+      </div>
+      <div class="entry">
+        <div class="row">
+          <span class="org">Job search, Fall 2026</span>
+          <span class="when mono">active</span>
+        </div>
+        <div class="role">Internship & new-grad SWE / ML roles</div>
+      </div>
+    </div>
+    <div>
+      <div class="entry">
+        <div class="row">
+          <span class="org">Arizona State University</span>
+          <span class="when mono">4.0 GPA</span>
+        </div>
+        <div class="role">MS Computer Science — Statistical ML, Data Mining, AI, Data Processing at Scale, Distributed DB Systems</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
+  <div class="contact">
+    <h2>Let's talk.</h2>
+    <p>Looking for Fall 2026 internship or new-grad opportunities in software or ML engineering. Reach out directly.</p>
+    <div class="contact-links">
+      <a class="btn primary" href="https://linkedin.com/in/-bhullar" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn ghost" href="https://github.com/msbhullar" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Maninderjit Singh Bhullar</footer>
+
+</body>
+</html>
