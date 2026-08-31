@@ -225,7 +225,7 @@
 <section class="hero">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap hero-inner">
-    <div class="eyebrow">Open to Fall 2026 / Spring 2027 internships (CPT) & new-grad roles</div>
+    <div class="eyebrow">Open to new-grad roles — May 2027 graduate</div>
     <h1>Maninderjit Singh Bhullar</h1>
     <p class="lede">Software engineer turned ML-focused CS grad student — I build systems that turn messy logs and data into reliable decisions, from RTL/model trace debugging to applied NLP and computer vision.</p>
     <div class="hero-links">
@@ -264,9 +264,22 @@
       <span class="tag">Experience</span>
       <h2>Where I've worked</h2>
     </div>
-    <p class="section-note">Two years at NXP Semiconductors building and validating automotive communication IPs before silicon.</p>
+    <p class="section-note">QA at Atomic Software today, building on two years at NXP Semiconductors validating automotive communication IPs before silicon.</p>
+  <div class="job">
+    <div class="job-head">
+      <div>
+        <span class="job-title">QA Engineer — <span class="job-org">Atomic Software, Inc.</span></span>
+        <div class="job-loc">Tempe, AZ</div>
+      </div>
+      <span class="job-when">Aug 2026 – Present</span>
+    </div>
+    <ul>
+      <li>Own end-to-end QA across two concurrent client projects, BGCA and BBC Learning Hub, covering web, CMS, and mobile applications, running regression and smoke testing on a two-week sprint cycle to support code freeze and release deadlines.</li>
+    <li>Write and track bug tickets in Jira with clear repro steps and expected vs. actual results, while flagging test gaps and blockers early to keep the dev team unblocked.</li>
+    <li>Test REST and GraphQL APIs with Postman across dev, staging, and production CMS environments, and support CI/CD pipeline checks as part of the release process.</li>
+    <li>Build out test automation with Playwright and Cypress, connecting Playwright through an MCP server to move manual test cases toward automated coverage, applying WCAG accessibility standards along the way.</li>
+    </ul>
   </div>
-
   <div class="job">
     <div class="job-head">
       <div>
@@ -362,7 +375,7 @@
       <span class="pname">AI Study Companion — RAG-based Study Assistant</span>
       <a class="plink" href="https://github.com/msbhullar/rag-study-companion" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
-    <div class="pmeta">Python · FastAPI · Next.js · LangChain · PostgreSQL/pgvector · Dagster · Docker</div>
+    <div class="pmeta">Python · FastAPI · Next.js · LangChain · LangGraph · PostgreSQL/pgvector · Dagster · Docker</div>
     <ul>
       <li>Built a RAG-based AI study assistant that lets users upload PDF course materials and ask natural-language questions, returning grounded answers through a Next.js chat interface backed by a FastAPI REST API.</li>
       <li>Architected an end-to-end ingestion pipeline: PDF loading → RecursiveCharacterTextSplitter (512 tokens, 50 overlap) → sentence-transformer embeddings (384-dim) → pgvector (PostgreSQL) storage, fully containerized in Docker.</li>
@@ -371,10 +384,12 @@
       <li>Orchestrated the ingestion pipeline in Dagster with 3 observable assets and a visual lineage graph, replacing ad-hoc scripts with schedulable, retryable pipeline runs.</li>
       <li>Containerized the full stack with Docker Compose, orchestrating PostgreSQL, Redis, and Dagster into a reproducible single-command deployment.</li>
       <li>Designed a custom LLM-as-judge evaluation suite measuring faithfulness, answer relevancy, and context precision — achieving a 0.813 overall score across test queries; validated FastAPI endpoints manually with Postman.</li>
+              <li>Upgrading the retrieval pipeline from single-shot to agentic — building a self-correcting LangGraph loop where an LLM-based relevance grader evaluates retrieved chunks and triggers automatic query rewriting and re-retrieval when context is insufficient, replacing the prior keyword-based router.</li>
+              <li>Developing an MCP server exposing the study companion's retrieval and quiz-generation logic as standardized tools for MCP-compatible AI clients, and instrumenting the pipeline with LangSmith tracing for node-level visibility into agent decisions.</li>
     </ul>
     <div class="tags">
       <span class="tag-chip">rag</span><span class="tag-chip">langchain</span><span class="tag-chip">dagster</span>
-      <span class="tag-chip">pgvector</span><span class="tag-chip">llm eval</span>
+      <span class="tag-chip">pgvector</span><span class="tag-chip">llm eval</span><span class="tag-chip">langgraph</span><span class="tag-chip">mcp</span>
     </div>
   </div>
 
@@ -489,7 +504,7 @@
       <div class="skill-chips">
         <span class="skill-chip">PyTorch</span><span class="skill-chip">TensorFlow</span><span class="skill-chip">scikit-learn</span>
         <span class="skill-chip">NumPy</span><span class="skill-chip">Pandas</span><span class="skill-chip">OpenCV</span>
-        <span class="skill-chip">Hugging Face Transformers</span><span class="skill-chip">LangChain</span>
+        <span class="skill-chip">Hugging Face Transformers</span><span class="skill-chip">LangChain</span><span class="skill-chip">LangGraph</span><span class="skill-chip">LangSmith</span>
         <span class="skill-chip">sentence-transformers</span><span class="skill-chip">CUDA</span>
         <span class="skill-chip">spaCy</span><span class="skill-chip">OpenAI API</span>
       </div>
@@ -508,10 +523,10 @@
       <h3>Frameworks & Tools</h3>
       <div class="skill-chips">
         <span class="skill-chip">FastAPI</span><span class="skill-chip">Next.js</span><span class="skill-chip">Node.js</span>
-        <span class="skill-chip">Express</span><span class="skill-chip">REST APIs</span><span class="skill-chip">Docker</span>
+                <span class="skill-chip">Express</span><span class="skill-chip">REST APIs</span><span class="skill-chip">Docker</span><span class="skill-chip">GraphQL</span>
         <span class="skill-chip">Kubernetes</span><span class="skill-chip">Git</span><span class="skill-chip">Linux/Unix</span><span class="skill-chip">AWS</span><span class="skill-chip">Google Cloud (GKE)</span>
         <span class="skill-chip">Synopsys VDK</span><span class="skill-chip">Valgrind</span><span class="skill-chip">Coverity</span><span class="skill-chip">GDB</span>
-        <span class="skill-chip">Claude Code</span>
+<span class="skill-chip">MCP (Model Context Protocol)</span>        <span class="skill-chip">Claude Code</span>
       </div>
     </div>
     <div class="skill-group">
@@ -527,6 +542,7 @@
         <span class="skill-chip">Postman</span><span class="skill-chip">Playwright</span>
         <span class="skill-chip">API Testing</span><span class="skill-chip">Manual & Exploratory Testing</span>
         <span class="skill-chip">Test Automation</span>
+                                    <span class="skill-chip">Jira</span><span class="skill-chip">Cypress</span><span class="skill-chip">GraphQL</span><span class="skill-chip">WCAG / Accessibility Testing</span>
       </div>
     </div>
     <div class="skill-group">
